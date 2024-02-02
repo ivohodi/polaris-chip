@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+aimport { LitElement, html, css } from 'lit';
 
 /**
  * Now it's your turn. Here's what we need to try and do
@@ -19,13 +19,19 @@ export class MyCard extends LitElement {
   static get styles() {
     return css`
       :host {
-        display: block;
+        display: inline-flex;
+      }
+      div{
+        background-color:#000080;
+        padding:8px;
+        margin:16px;
+        width: 400px;
       }
     `;
   }
 
   render() {
-    return html`<div>${this.title}</div>`;
+    return html`<a href="${this.rlink}"><span>${this.title}</span>`;
   }
 
   static get properties() {
