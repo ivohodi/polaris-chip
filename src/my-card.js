@@ -83,3 +83,8 @@ export class MyCard extends LitElement {
 }
 
 globalThis.customElements.define(MyCard.tag, MyCard);
+document.querySelector('.duplicate').addEventListener('click', function(event) {
+  if(document.querySelectorAll('.card').length<10){
+  const newCard = document.querySelector('#cardlist .card').cloneNode(true);
+ document.body.appendChild(newCard);}
+});
