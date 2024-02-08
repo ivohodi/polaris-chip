@@ -14,12 +14,13 @@ export class MyCard extends LitElement {
   constructor() {
     super();
     this.title = "My card";
+    this.fancy=false;
   }
 
   static get styles() {
     return css`
       :host {
-        display:inline-flex;
+        display:flex;
       }
 
       .box{
@@ -51,8 +52,35 @@ export class MyCard extends LitElement {
         background-color:#0d174e;
         color:white;
       }
+      :host([fancy]) {
+        display: block;
+        background-color: #ADD8E6;
+        border: 2px solid navy;
+        box-shadow: 10px 5px 5px #A7C7E7	;
+      }
+      details div{
+        border:2px solid black;
+        text-align: left;
+        padding:8px;
+        height: 70px;
+        overflow:auto;
+      }
+      .change-color{
+        background-color:#B6D0E2	;
+
+      }
       
     `;
+  }
+  // put this anywhere on the MyCard class; just above render() is probably good
+  openChanged(e) {
+    console.log(e.newState);
+    if (e.newState === "open") {
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
   }
 
   render() {
@@ -61,7 +89,13 @@ export class MyCard extends LitElement {
     <div class="card-wrapper">
       <img class="card-img" src="${this.image}">
       <h1>${this.title}</h1>
-      <p>${this.description}</p>
+      <!-- put this in your render method where you had details -->
+        <details ?open="${this.fancy}" @toggle="${this.openChanged}">
+        <summary>Description</summary>
+        <div>
+        <slot>${this.description}</slot>
+      </div>
+</details>
       <div class="btn-wrapper">
         <a href="${this.link}">
           <button class="btn">Learn More</button>
@@ -78,13 +112,44 @@ export class MyCard extends LitElement {
       link: {type: String},
       image: {type: String},
       description:{type: String},
+      fancy:{type: Boolean,reflect: true},
     };
   }
 }
 
 globalThis.customElements.define(MyCard.tag, MyCard);
-document.querySelector('.duplicate').addEventListener('click', function(event) {
-  if(document.querySelectorAll('.card').length<10){
-  const newCard = document.querySelector('#cardlist .card').cloneNode(true);
- document.body.appendChild(newCard);}
+
+document.querySelector('.changetitle').addEventListener("click",function(e){
+  const mycards=document.querySelectorAll('my-card');
+  mycards.forEach(function(card){
+    card.title="GO PSU";
+  })
 });
+
+document.querySelector('.changeimage').addEventListener("click",function(e){
+  const mycards=document.querySelectorAll('my-card');
+  mycards.forEach(function(card){
+    card.image="https://www.statecollege.com/wp-content/uploads/2021/03/1483631_46733.jpg";
+  })
+});
+
+document.querySelector('.changebg').addEventListener("click",function(e){
+  const mycards=document.querySelectorAll('my-card');
+  mycards.forEach(function(card){
+    card.shadowRoot.querySelector('.card-wrapper').classList.toggle('change-color');
+    
+  })
+});
+// document.querySelector('.duplicate').addEventListener('click', function(event) {
+//   const cardList=document.querySelector('.cardContainer')
+//   const myCardElements=cardList.querySelectorAll('my-card');
+//   if(myCardElements.length<10){
+//     const lastCard= myCardElements[myCardElements.length-1];
+//     const newCard = document.createElement('my-card');
+//     newCard.title = lastCard.title;
+//     newCard.img = lastCard.img;
+//     newCard.bodyText = lastCard.bodyText;
+//     newCard.btnText = lastCard.btnText;
+//     newCard.btnLink = lastCard.btnLink;
+//  cardList.body.appendChild(newCard);}
+// });

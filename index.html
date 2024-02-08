@@ -35,16 +35,16 @@
   <h1>Penn State Colleges in Cards </h1>
   <div class="control wrapper">
     <button class="duplicate">Clone card</button>
-    <button id="changetitle">Change Title</button>
-    <button id="changeimage">Change Image</button>
-    <button id="changebg">Change background</button>
-    <button id="delete">Delete card</button>
+    <button class="changetitle">Change Title</button>
+    <button class="changeimage">Change Image</button>
+    <button class="changebg">Change background</button>
+    <button class="delete">Delete card</button>
   </div>
   <my-card title="Bellasario" link="https://www.bellisario.psu.edu/"image="https://www.bellisario.psu.edu/assets/uploads/carnegie-test.jpg" description="Majors: Advertising, Journalism, Film Production""></my-card>
-  <my-card title="Engineering" link="https://www.engr.psu.edu/"image="https://www.statecollege.com/wp-content/uploads/2021/05/W1-Exterior-Main-entrance-from-Westgate-ramp.jpeg"description="Majors: Aerospace, Civil, Computer, Biomedical"></my-card> 
-  <my-card title="IST" link="https://www.ist.psu.edu/"image="https://vinoly.com/wp-content/uploads/2016/05/PSIST_3-1778x1000.jpg"description="Majors: Cybersecurity, HCDD, ETI, IST"></my-card> 
-  <my-card title="Smeal" link="https://www.smeal.psu.edu/"image="https://poetsandquantsforundergrads.com/wp-content/uploads/sites/3/2015/07/Smeal-650x325.jpg" description="Majors: Business, Marketing, Finance, Accounting" ></my-card>
-  <my-card title="Education" link="https://www.ed.psu.edu/"image="https://i0.wp.com/images.onwardstate.com/uploads/2021/03/chambers-building-1-scaled.jpg?resize=2560%2C1702&ssl=1" description="Majors: Education and Public Policy, Special Education, Secondary Education"></my-card>
+  <my-card title="Engineering" link="https://www.engr.psu.edu/"image="https://www.statecollege.com/wp-content/uploads/2021/05/W1-Exterior-Main-entrance-from-Westgate-ramp.jpeg"description=<slot><strong> Majors: </strong> Aerospace, Civil, Computer, Biomedical </slot></my-card> 
+  <my-card title="IST" link="https://www.ist.psu.edu/"image="https://vinoly.com/wp-content/uploads/2016/05/PSIST_3-1778x1000.jpg"description=<slot> <strong> Majors: </strong> Cybersecurity, HCDD, ETI, IST </slot></my-card> 
+  <my-card title="Smeal" link="https://www.smeal.psu.edu/"image="https://poetsandquantsforundergrads.com/wp-content/uploads/sites/3/2015/07/Smeal-650x325.jpg" description=<slot><strong>Majors: </strong>Business, Marketing, Finance, Accounting</slot></my-card>
+  <my-card title="Education" link="https://www.ed.psu.edu/"image="https://i0.wp.com/images.onwardstate.com/uploads/2021/03/chambers-building-1-scaled.jpg?resize=2560%2C1702&ssl=1" description=<slot><strong>Majors: </strong>Education and Public Policy, Special Education, Secondary Education</slot></my-card>
 
   <!-- this is what is bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
