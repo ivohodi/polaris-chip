@@ -33,6 +33,7 @@ export class MyCard extends LitElement {
 	      font-size:25px;
 	      margin-top:8px;
 	      text-align:center;
+        overflow:auto;
         }
 
       .card-wrapper{
@@ -43,6 +44,7 @@ export class MyCard extends LitElement {
 		    border:1px solid #0d174e;
 		    text-align:center;
       }
+
       .card-img{
             width:150px;
             height:120px;
