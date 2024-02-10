@@ -44,8 +44,8 @@ export class MyCard extends LitElement {
 		    text-align:center;
       }
       .card-img{
-            max-width:180px;
-            max-height:180px;
+            width:150px;
+            height:120px;
 				    border-bottom:4px solid #0d174e;
       }
       .btn{
@@ -53,7 +53,7 @@ export class MyCard extends LitElement {
         color:white;
       }
       :host([fancy]) {
-        display: block;
+        
         background-color: #ADD8E6;
         border: 2px solid navy;
         box-shadow: 10px 5px 5px #A7C7E7	;
@@ -69,6 +69,17 @@ export class MyCard extends LitElement {
         background-color:#B6D0E2	;
 
       }
+
+      details summary {
+    text-align: center
+    font-size: 20px;
+    padding: 8px 0;
+  }
+
+  details[open] summary {
+    font-weight: bold;
+  }
+  
       
     `;
   }
@@ -147,6 +158,7 @@ document.querySelector('.duplicate').addEventListener('click',function(event) {
   if(myCardElements.length<10){
      const newCard = document.createElement('my-card');
      cardList.appendChild(newCard);
+     const lastCard=myCardElements[myCardElements.length-1];
      newCard.title="Bellasario";
      newCard.image="https://www.bellisario.psu.edu/assets/uploads/carnegie-test.jpg";
      newCard.description="Majors: Advertising, Journalism, Film Production";
