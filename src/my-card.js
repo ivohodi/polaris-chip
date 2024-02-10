@@ -20,7 +20,7 @@ export class MyCard extends LitElement {
   static get styles() {
     return css`
       :host {
-        display:flex;
+        display:inline-flex;
       }
 
       .box{
@@ -140,16 +140,24 @@ document.querySelector('.changebg').addEventListener("click",function(e){
     
   })
 });
-// document.querySelector('.duplicate').addEventListener('click', function(event) {
-//   const cardList=document.querySelector('.cardContainer')
-//   const myCardElements=cardList.querySelectorAll('my-card');
-//   if(myCardElements.length<10){
-//     const lastCard= myCardElements[myCardElements.length-1];
-//     const newCard = document.createElement('my-card');
-//     newCard.title = lastCard.title;
-//     newCard.img = lastCard.img;
-//     newCard.bodyText = lastCard.bodyText;
-//     newCard.btnText = lastCard.btnText;
-//     newCard.btnLink = lastCard.btnLink;
-//  cardList.body.appendChild(newCard);}
-// });
+
+document.querySelector('.duplicate').addEventListener('click',function(event) {
+  const cardList=document.querySelector('.card-wrapper');
+  const myCardElements=cardList.querySelectorAll('my-card');
+  if(myCardElements.length<10){
+     const newCard = document.createElement('my-card');
+     cardList.appendChild(newCard);
+     newCard.title="Bellasario";
+     newCard.image="https://www.bellisario.psu.edu/assets/uploads/carnegie-test.jpg";
+     newCard.description="Majors: Advertising, Journalism, Film Production";
+     newCard.link="https://www.bellisario.psu.edu/";
+  }
+});
+
+document.querySelector('.delete').addEventListener('click',function(event) {
+  const cardList=document.querySelector('.card-wrapper');
+  const myCardElements=cardList.querySelectorAll('my-card');
+  if(myCardElements.length>1){
+    document.querySelector('my-card').remove();
+  }
+});
