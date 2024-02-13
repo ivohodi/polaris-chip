@@ -45,9 +45,8 @@ export class MyCard extends LitElement {
 		    text-align:center;
       }
 
-      .card-img{
+      .card-image{
             width:150px;
-            height:120px;
 				    border-bottom:4px solid #0d174e;
       }
       .btn{
@@ -100,7 +99,7 @@ export class MyCard extends LitElement {
     return html`
     <div class="box">
     <div class="card-wrapper">
-    <meme-maker alt="" image-url="${this.image}" top-text="PSU" bottom-text="Building"></meme-maker>
+    <meme-maker class= "card-image" alt="" image-url="${this.image}" top-text="PSU" bottom-text="Building"></meme-maker>
       <!-- <img class="card-img" src="${this.image}"> -->
       <h1>${this.title}</h1>
       <!-- put this in your render method where you had details -->
