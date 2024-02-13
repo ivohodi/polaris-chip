@@ -26,7 +26,7 @@ export class MyCard extends LitElement {
       .box{
         display: flex;
         flex-wrap: wrap;
-        height: 400px;
+        height: 300px;
         align-content: space-between;
       }
       h1{
@@ -39,7 +39,7 @@ export class MyCard extends LitElement {
       .card-wrapper{
         height:300px;
         max-width:180px;
-		    margin:15px;
+		    margin:16px;
 		    background:#e5e5e5;
 		    border:1px solid #0d174e;
 		    text-align:center;
@@ -99,7 +99,7 @@ export class MyCard extends LitElement {
     return html`
     <div class="box">
     <div class="card-wrapper">
-    <meme-maker class= "card-image" alt="" image-url="${this.image}" top-text="PSU" bottom-text="Building"></meme-maker>
+    <meme-maker class="card-image" alt="" image-url="${this.image}" top-text="PSU" bottom-text="Building"></meme-maker>
       <!-- <img class="card-img" src="${this.image}"> -->
       <h1>${this.title}</h1>
       <!-- put this in your render method where you had details -->
