@@ -32,6 +32,9 @@ export class CounterApp extends LitElement {
   render() {
     return html`
     <h1>Title</h1>
+    <span>
+      ${this.title}
+  </span>
     `;
   }
 
