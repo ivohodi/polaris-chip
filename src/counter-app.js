@@ -6,7 +6,7 @@ export class CounterApp extends LitElement {
   }
   constructor() {
     super();
-    this.title = 'counter';
+    this.count=0;
   }
   static get styles() {
     return css`
@@ -22,19 +22,43 @@ export class CounterApp extends LitElement {
         margin:8px;
       }
 
-      span:hover{
-        background-color:grey;
+      button:hover{
+        background-color:#4169E1	;
         border: 1px solid black;
+      }
+      button:focus{
+        background-color:#0F52BA	;
+        border: 1px solid black;
+      }
+      .countnumber{
+        font-size:40px;
+        text-align:center;
+        padding:8px;
+        align-self:center;
+      }
+      button{
+        text-align:center;
+        padding:8px;
+        margin:16px;
+        align-self:center;
+      }
+      :host([count="18"]) .countnumber{
+        color:#40B5AD;
+      }
+      :host([count="21"]) .countnumber{
+        color:#87CEEB;
       }
     `;
   }
 
   render() {
     return html`
-    <h1>Title</h1>
-    <span>
-      ${this.title}
-  </span>
+    <div class="counter-wrapper">
+    <h1>Counter</h1>
+    <div class="countnumber">${this.count}</div>
+    <button class="addbtn" @click="${this.increaseCount}">+</button>
+    <button class="minusbtn" @click="${this.decreaseCount}">-</button>
+    </div>
     `;
   }
 
@@ -42,8 +66,19 @@ export class CounterApp extends LitElement {
     return {
       title: { type: String },
       link: {type: String}, 
+      count:{type: Number,reflect:true},
     };
   }
-}
+  increaseCount(){
+      this.count+=1;
+    };
+
+  decreaseCount(){
+      this.count-=1;
+    };
+  }
+
+  
 
 globalThis.customElements.define(CounterApp.tag, CounterApp);
+
