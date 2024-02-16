@@ -95,7 +95,6 @@ export class CounterApp extends LitElement {
       
     };
 
-//confetti part 
 updated(changedProperties) {
   if(this.max === this.count){
     console.log("MAXREACHED")
