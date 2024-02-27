@@ -6,16 +6,20 @@ export class BannerApp extends LitElement {
   }
   constructor() {
     super();
-    this.infotxt="this is info txt";
+    this.infotxt="this is info txt. Oh no something really bad has happened! KEEP A LOOK OUT";
 
   }
   static get styles() {
     return css`
         :host {
+        --display-mode: unset;
         display: inline;
       }
       .banner-wrapper{
-        background-color:blue;
+        background-color: #FFEF00;
+        top:0px;
+        position: sticky;
+
       }
       .banner-content{
         padding:16px;
@@ -24,6 +28,7 @@ export class BannerApp extends LitElement {
         max-width:500px;
         display:flex;
         align-items:center;
+        
 
       }
       .banner-text{
@@ -35,7 +40,8 @@ export class BannerApp extends LitElement {
       .closebtn{
         font-size:20px;
         font-weight:400;
-        background-color:white;
+        background-color:transparent;
+        border:0px;
         color:black;
         position:absolute;
         top:8px;
@@ -45,9 +51,13 @@ export class BannerApp extends LitElement {
         opacity:1;
       }
       #infotxt{
-        display:block;
-        color:pink;
+        display:var(--display-mode);
       }
+      .openbtn{
+        background-color:transparent;
+        border:0px;
+      }
+
     `;
   }
 
@@ -61,14 +71,15 @@ export class BannerApp extends LitElement {
           </g><g transform="translate(395 455)"><rect width="10" height="7" transform="translate(0.919 34.336)">
           </rect><path d="M6520.672,2327.554h-5.854l-3.21-23.669V2299.2h11.81v4.681Z" transform="translate(-6511.607 -2299.203)">
           </path></g></g></svg>
-        
         <div class="banner-txt">
         <h1 class="title">TEST ALERT</h1>
         <div id="infotxt">${this.infotxt}</div>
-        </div>
+      </div>
+      <div>
+        <button class="openbtn" @click="${this.openbtn}">Open</button>
       </div>
       <div class="btn-wrapper">
-      <button class="closebtn" @click="${this.closebtn}">&times</button>
+      <button class="closebtn" @click="${this.closebtn}">&times Close</button>
       </div>
     </div>
     `;
@@ -76,19 +87,21 @@ export class BannerApp extends LitElement {
  
   static get properties() {
     return {
-
+      open: {type:Boolean, reflect: true},
     };
   }
-
+//    this.open=!this.open;
   closebtn(){
-    var selector=document.getElementById('infotxt');
-    console.log(selector);
-    if (selector==="none"){
-      selector.style.display="block";
-    }
-    else{
-      selector.style.display="none";
-    }
+    this.open=false;
+    console.log("Close")
+    this.style.setProperty('--display-mode','none');
+
+  }
+  openbtn(){
+    this.open=true;
+    console.log("open")
+    this.style.setProperty('--display-mode','true');
+
   }
   }
 
