@@ -1160,12 +1160,12 @@
     "@lrnwebcomponents/simple-tooltip" "^8.0.0"
     lit "^3.1.0"
 
-"@lrnwebcomponents/a11y-utils@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/@lrnwebcomponents/a11y-utils/-/a11y-utils-8.0.0.tgz"
-  integrity sha512-v7BaCKTlSWXyx17ZTWx+c64sdfIe+Gyar1LsQ3x+DrR5TJCIRpMMgwuT17BL0yWEmzMs97D1hPXsDVc4d2V1sQ==
+"@lrnwebcomponents/a11y-utils@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.npmjs.org/@lrnwebcomponents/a11y-utils/-/a11y-utils-8.0.2.tgz"
+  integrity sha512-hrfKLc2Pu+gJHu6vLQjQdxpJatYQNNSgKCZsT+IoWu55C9f2iF0xbF9eOR1J+ElhRaXHE9DLUa93r8M3+ili/g==
   dependencies:
-    lit "^3.1.0"
+    lit "^3.1.2"
 
 "@lrnwebcomponents/absolute-position-behavior@^8.0.0":
   version "8.0.0"
@@ -1183,6 +1183,14 @@
     "@lrnwebcomponents/utils" "^8.0.0"
     lit "^3.1.0"
     monaco-editor "0.32.1"
+
+"@lrnwebcomponents/d-d-d@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.npmjs.org/@lrnwebcomponents/d-d-d/-/d-d-d-8.0.2.tgz"
+  integrity sha512-mxqrWqMwV9Euyr22ha9v45T5CU2xJ83G0L6eNvVcaNEV7iOTw4B3AswVIrKG8mNmiPjhelp6NL6/EkLtUeOvjA==
+  dependencies:
+    "@lrnwebcomponents/simple-colors" "^8.0.2"
+    lit "^3.1.2"
 
 "@lrnwebcomponents/es-global-bridge@^8.0.0":
   version "8.0.0"
@@ -1246,21 +1254,21 @@
   dependencies:
     "@lrnwebcomponents/utils" "^8.0.0"
 
-"@lrnwebcomponents/simple-colors-shared-styles@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/@lrnwebcomponents/simple-colors-shared-styles/-/simple-colors-shared-styles-8.0.0.tgz"
-  integrity sha512-k3/Sta7DhnvXac/acRgIKNS15WF1OFDasptRUJ3nqrN1iUgloiO1kAKOznpYHjx9Cl3MEeclAuH3U+LXUjoKcQ==
+"@lrnwebcomponents/simple-colors-shared-styles@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.npmjs.org/@lrnwebcomponents/simple-colors-shared-styles/-/simple-colors-shared-styles-8.0.2.tgz"
+  integrity sha512-EaRlkacaxNr3+Cr1Mf6jxFM9DMSPDpe1bvQKyB6+6mY2cHGbXdt46xYsN5LR6lf2wJIh1ebKVNJ/EPZCYwNSig==
   dependencies:
-    lit "^3.1.0"
+    lit "^3.1.2"
 
-"@lrnwebcomponents/simple-colors@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/@lrnwebcomponents/simple-colors/-/simple-colors-8.0.0.tgz"
-  integrity sha512-KvM3BJIudeIb6vyQ2cl3eBoko/4ntiqoHMyPKl+444uPZ4lHmyADrx/CEa9LWkApjccRhoVNK8wu2fbPbRUT5g==
+"@lrnwebcomponents/simple-colors@^8.0.0", "@lrnwebcomponents/simple-colors@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.npmjs.org/@lrnwebcomponents/simple-colors/-/simple-colors-8.0.2.tgz"
+  integrity sha512-0y9P9Jgbx6v/kiNNkT0Sw0P37b/pF+pQAJLcwutGllkdqN85kUHfCADo7xLizavpxDMy7yzjCFzLOUEOzHizbw==
   dependencies:
-    "@lrnwebcomponents/a11y-utils" "^8.0.0"
-    "@lrnwebcomponents/simple-colors-shared-styles" "^8.0.0"
-    lit "^3.1.0"
+    "@lrnwebcomponents/a11y-utils" "^8.0.2"
+    "@lrnwebcomponents/simple-colors-shared-styles" "^8.0.2"
+    lit "^3.1.2"
 
 "@lrnwebcomponents/simple-fields@^8.0.0":
   version "8.0.0"
