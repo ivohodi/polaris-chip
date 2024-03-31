@@ -75,7 +75,10 @@ export class PartyUI extends DDD{
 
       }
       
-
+    .titletext{
+      font-size:48px;
+      text-align:center;
+    }
     `];
   }
   add(e){
@@ -91,7 +94,7 @@ export class PartyUI extends DDD{
     return html`
     <confetti-container id="confetti">
     <div class="partyui-wrapper">
-      <h1>PARTY-UI</h1>
+      <div class="titletext" > PARTY-UI</div>
       <p> < ${this.message} > </p>
       <div class="partyui">
       ${visPlayers.map((player, index) => html`
