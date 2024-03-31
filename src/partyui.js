@@ -19,14 +19,14 @@ export class PartyUI extends DDD{
       super.styles,
       css`
       :host{
-      display:flex;
-      justify-content:center;
+        display:flex;
+        justify-content:center;
       }
       .partyui-wrapper{
         color:var(--ddd-theme-default-slateMaxLight);
         background-color:var(--ddd-theme-default-beaverBlue);
         font-family: "Press Start 2P", system-ui, sans-serif;
-        padding:var(--ddd-spacing-8);
+        padding:var(--ddd-spacing-4);
         margin: var(--ddd-spacing-5);
 
       }
@@ -39,20 +39,13 @@ export class PartyUI extends DDD{
         height:800px;
         width:950px;
         
-        padding:var(--ddd-spacing-8);
-        margin: var(--ddd-spacing-5);
+        padding:var(--ddd-spacing-4);
+        margin: var(--ddd-spacing-8);
 
         display:flex;
-        align-items: center; 
+        //align-items: center; 
         //flex-direction: row;
              
-      }
-      .characters{
-        justify-content: center; 
-        text-align:center;
-        
-
-        //display:flex;
       }
       .charnames{
         font-family: "Press Start 2P", system-ui;
@@ -96,6 +89,7 @@ export class PartyUI extends DDD{
   render() {
     const visPlayers = this.playersarray;
     return html`
+    <confetti-container id="confetti">
     <div class="partyui-wrapper">
       <h1>PARTY-UI</h1>
       <p> < ${this.message} > </p>
@@ -126,7 +120,7 @@ export class PartyUI extends DDD{
 
   </div>
   </div>
-   
+   </confetti-container>
    `;
   }
 
@@ -158,29 +152,22 @@ export class PartyUI extends DDD{
       
     }
   }
-  saveparty(){
-    makeItRain();
-  }
-
 
   makeItRain() {
-    // this is called a dynamic import. It means it won't import the code for confetti until this method is called
-    // the .then() syntax after is because dynamic imports return a Promise object. Meaning the then() code
-    // will only run AFTER the code is imported and available to us
     import("@lrnwebcomponents/multiple-choice/lib/confetti-container.js").then(
       (module) => {
-        // This is a minor timing 'hack'. We know the code library above will import prior to this running
-        // The "set timeout 0" means "wait 1 microtask and run it on the next cycle.
-        // this "hack" ensures the element has had time to process in the DOM so that when we set popped
-        // it's listening for changes so it can react
         setTimeout(() => {
-          // forcibly set the poppped attribute on something with id confetti
-          // while I've said in general NOT to do this, the confetti container element will reset this
-          // after the animation runs so it's a simple way to generate the effect over and over again
           this.shadowRoot.querySelector("#confetti").setAttribute("popped", "");
         }, 0);
       }
     );
+  }
+  saveparty(){
+    this.makeItRain();
+    this.message="PARTY of "+this.playersarray+" SAVED!";
+    console.log(this.playersarray);
+    this.requestUpdate();
+
   }
 
   static get properties() {
@@ -191,6 +178,9 @@ export class PartyUI extends DDD{
       message:{type:String,reflect:true},
     };
   }
+  
+
+
 
 }
 
