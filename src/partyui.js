@@ -3,7 +3,6 @@ import { DDD } from "@lrnwebcomponents/d-d-d/d-d-d.js";
 import "@lrnwebcomponents/rpg-character/rpg-character.js";
 
 export class PartyUI extends DDD{
-  
   static get tag() {
     return 'party-ui';
   }
