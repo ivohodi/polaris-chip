@@ -7,7 +7,6 @@ import { generateSW } from 'rollup-plugin-workbox';
 import path from 'path';
 import copy from 'rollup-plugin-copy';
 
-
 export default {
   input: 'index.html',
   output: {
