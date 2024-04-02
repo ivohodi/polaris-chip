@@ -65,7 +65,7 @@ export class PartyUI extends DDD{
       }
       .input-name{
         background: transparent;
-        color: white;
+        color: var(--ddd-theme-default-white);
         font-family: "Press Start 2P", system-ui;
         border: transparent;
         width:250px;
@@ -77,6 +77,9 @@ export class PartyUI extends DDD{
     .titletext{
       font-size:48px;
       text-align:center;
+    }
+    .character-wrapper{
+      padding: var(--ddd-spacing-2);
     }
     `];
   }
@@ -106,7 +109,7 @@ export class PartyUI extends DDD{
         </div>
 
         ${index + this.index > 0 ? html`
-          <button class="savebtn" @click="${this.saveName}" > SAVE </button>
+          <button class="savebtn" @click="${this.updateName}" > SAVE </button>
           <button @click="${() => this.remove(index + this.index)}" class="removebtn">> REMOVE</button>
                       ` : ''}
     </div>
@@ -127,6 +130,7 @@ export class PartyUI extends DDD{
   }
 
   updateName(e, index) {
+    console.log(this.playersarray);
     const newName = e.target.value;
     this.playersarray[index] = newName;
     if (newName !== "") {
