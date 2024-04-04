@@ -42,8 +42,6 @@ export class PartyUI extends DDD{
         margin: var(--ddd-spacing-8);
 
         display:flex;
-        //align-items: center; 
-        //flex-direction: row;
              
       }
       .charnames{
@@ -81,6 +79,10 @@ export class PartyUI extends DDD{
     .character-wrapper{
       padding: var(--ddd-spacing-2);
     }
+    .saveparty-wrapper{
+      position:relative;
+      top:280px;
+    }
     `];
   }
   add(e){
@@ -117,7 +119,7 @@ export class PartyUI extends DDD{
         <div>
           <button class="addbtn" @click="${this.add}">ADD User</button>
         </div>
-        <div>
+        <div class="saveparty-wrapper">
         <button class="saveparty" @click="${this.saveparty}">Save Party</button>
         </div>
   </div>
