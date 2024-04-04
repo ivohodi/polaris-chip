@@ -52,12 +52,12 @@ export class PartyUI extends DDD{
         overflow-y:hidden;
       }
       .addbtn,.savebtn,.removebtn,.saveparty{
-        border: var(--ddd-spacing-1) dashed white;
+        border: var(--ddd-spacing-1) dashed var(--ddd-theme-default-slateMaxLight);
         padding: var(--ddd-spacing-2);
         margin: var(--ddd-spacing-2);
 
         text-align: center;
-        color: white;
+        color: var(--ddd-theme-default-slateMaxLight);
         font-family: "Press Start 2P", system-ui;
         background-color: transparent;
       }
