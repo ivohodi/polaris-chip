@@ -85,13 +85,57 @@ export class PartyUI extends DDD{
     }
     `];
   }
-  add(e){
+  add(e){ //addplayerts to array 
     this.playersarray.push("");
     this.totalplayers++;
     this.requestUpdate(); 
-    console.log(this.playersarray);
   }
 
+  updateName(e, index) { //update name in array
+    const newName = e.target.value;
+    this.playersarray[index] = newName;
+    if (newName !== "") {
+      this.requestUpdate();
+    }
+  }
+
+  saveName(e,index){ //saves name to array and outputs message
+    const newName=e.target.value;
+    if(/^[a-z0-9]{1,10}$/.test(newName)){
+      this.playersarray[index]=newName;
+      this.message="WELCOME to the party "+newName;
+    }
+    else{
+      this.message="ERROR! Names can only contain lowercase and numbers";
+    }
+    this.requestUpdate();
+  }
+
+  remove(index){ //deletes player from array
+    if(this.playersarray.length>1){
+      this.message="Bye bye "+this.playersarray[index];
+      this.playersarray.splice(index,1);
+      this.totalplayers--;
+      
+    }
+  }
+
+  makeItRain() { //confetti 
+    import("@lrnwebcomponents/multiple-choice/lib/confetti-container.js").then(
+      (module) => {
+        setTimeout(() => {
+          this.shadowRoot.querySelector("#confetti").setAttribute("popped", "");
+        }, 0);
+      }
+    );
+  }
+
+  saveparty(){ //saves array to party, plays confetti, outputs saves message
+    this.makeItRain();
+    this.message="PARTY of "+this.playersarray+" SAVED!";
+    this.requestUpdate();
+
+  }
 
   render() {
     const visPlayers = this.playersarray;
@@ -123,59 +167,10 @@ export class PartyUI extends DDD{
         <button class="saveparty" @click="${this.saveparty}">Save Party</button>
         </div>
   </div>
-
-
   </div>
   </div>
    </confetti-container>
    `;
-  }
-
-  updateName(e, index) {
-    console.log(this.playersarray);
-    const newName = e.target.value;
-    this.playersarray[index] = newName;
-    if (newName !== "") {
-      this.requestUpdate();
-    }
-  }
-
-  saveName(e,index){
-    const newName=e.target.value;
-    if(/^[a-z0-9]{1,10}$/.test(newName)){
-      console.log(this.playersarray);
-      this.playersarray[index]=newName;
-      this.message="WELCOME to the party "+newName;
-    }
-    else{
-      this.message="ERROR! Names can only contain lowercase and numbers";
-    }
-    this.requestUpdate();
-  }
-  remove(index){
-    if(this.playersarray.length>1){
-      this.message="Bye bye "+this.playersarray[index];
-      this.playersarray.splice(index,1);
-      this.totalplayers--;
-      
-    }
-  }
-
-  makeItRain() {
-    import("@lrnwebcomponents/multiple-choice/lib/confetti-container.js").then(
-      (module) => {
-        setTimeout(() => {
-          this.shadowRoot.querySelector("#confetti").setAttribute("popped", "");
-        }, 0);
-      }
-    );
-  }
-  saveparty(){
-    this.makeItRain();
-    this.message="PARTY of "+this.playersarray+" SAVED!";
-    console.log(this.playersarray);
-    this.requestUpdate();
-
   }
 
   static get properties() {
@@ -186,13 +181,7 @@ export class PartyUI extends DDD{
       message:{type:String,reflect:true},
     };
   }
-  
-
-
-
 }
-
-
 
 globalThis.customElements.define(PartyUI.tag, PartyUI);
 
